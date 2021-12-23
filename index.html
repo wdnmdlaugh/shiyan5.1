@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>十大名茶</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      html,body{
+        width:100%;
+        height:100%;
+        margin:0px;
+        overflow:hidden;
+      }
+      ul{
+        list-style-type:none;
+      	margin:0px auto;
+      	padding:0px;
+      }
+      .menu{
+      	position: absolute;
+      	background-color:#000000;
+      	color:#ffffff;
+      	width:100%;
+      	font-weight:bold ;
+      	font-family:"bodoni mt";
+      	font-size: 18px;
+    
+      }
+      .menu ul li:nth-of-type(2){
+      	background-color: white;
+      	color: #020202;
+      }
+      .menu ul{
+        width:100%;
+      	display:flex;
+      	justify-content:center;
+      }
+      .menu ul li{
+        width:200px;
+      	line-height:50px;
+      	text-align:center;
+      }
+      #mainDiv{
+        position:relative;
+        left:0px;
+        top:0px;
+        width:100%;
+        height:100%;
+        transition:all 1s ease;
+      }
+      #mainDiv div{
+        width:100%;
+        height:100%;
+        background-repeat:no-repeat;
+        background-position:center;
+        background-size:cover;
+      }
+      .page1{
+        background-image:url("res/tea1.jpg");
+      }
+      .page2{
+        background-image:url("res/tea2.jpg");
+      }
+      .page3{
+        background-image:url("res/tea3.jpg");
+      }
+      .page4{
+        background-image:url("res/tea4.jpg");
+      }
+      .page5{
+        background-image:url("res/tea5.png");
+      }
+      .page6{
+        background-image:url("res/tea6.jpg");
+      }
+      .page7{
+        background-image:url("res/tea7.jpeg");
+      }
+      .page8{
+        background-image:url("res/tea8.jpg");
+      }
+      .page9{
+        background-image:url("res/tea9.jpg");
+      }
+      .page10{
+        background-image:url("res/tea10.jpg");
+      }
+      .btn_list{
+        position:fixed;
+        top:30%;
+        right:50px;
+      }
+      .btn_list ul{
+        list-style-type:none;
+      }
+      .btn_list li{
+        width:20px;
+        height:20px;
+        margin-top:10px;
+        border-radius:20px;
+        background-color:#3D3D3D;
+        cursor:pointer;
+      }
+      #li0{
+        background-color:#10508D;
+      }
+    </style>
+    <script type="text/javascript">
+      var index = 0;//当前显示第几屏。0代表第1屏
+      
+      window.onload = function(){
+    	  
+        //为li添加鼠标点击事件
+        for(var i=0;i<=9;i++){
+          document.getElementById("li"+i).onclick = function(){
+            index = this.id.replace("li","");//通过id获取当前显示第几屏
+            pageAnimate();
+          }
+        }
+        
+        //窗口大小重置
+        window.onresize = function(){
+          document.getElementById("mainDiv").style.transition = "all 0s ease";
+          pageAnimate();
+          window.setTimeout(function(){
+            document.getElementById("mainDiv").style.transition = "all 1s ease";
+          },10);
+        }
+      }
+      
+      function pageAnimate(){
+        var offsetHeight = document.body.offsetHeight;
+        document.getElementById("mainDiv").style.top = -(offsetHeight * index)+"px";
+        
+        for(var i=0;i<=9;i++){
+          document.getElementById("li"+i).style.backgroundColor = "#3D3D3D";
+        }
+        document.getElementById("li"+index).style.backgroundColor = "#10508D";
+      }
+    </script>
+  </head>
+  <body>
+  <div class="menu">
+      <ul>
+        <li>制茶过程</li>
+        <li>十大名茶</li>
+        <li><a href="lishi.html" >相关历史</a></li>
+        <li><a href="mingren.html" >名人趣事</a></li>
+		<li><a href="shipin.html" >冲泡方法</a></li>
+      </ul>
+    </div>
+    </br></br></br>
+    <div id="mainDiv">
+      <div class="page1"></div>
+      <div class="page2"></div>
+      <div class="page3"></div>
+      <div class="page4"></div>
+      <div class="page5"></div>
+      <div class="page6"></div>
+      <div class="page7"></div>
+      <div class="page8"></div>
+      <div class="page9"></div>
+      <div class="page10"></div>
+    </div>
+    <div class="btn_list">
+      <ul>
+        <li id="li0"></li>
+        <li id="li1"></li>
+        <li id="li2"></li>
+        <li id="li3"></li>
+        <li id="li4"></li>
+        <li id="li5"></li>
+        <li id="li6"></li>
+        <li id="li7"></li>
+        <li id="li8"></li>
+        <li id="li9"></li>
+      </ul>
+    </div>
+    
+  </body>
+</html>
